@@ -333,12 +333,15 @@ body {
   text-align: center;
   font-family: KaTeX_Main;
   line-height: 1.2;
+  margin-top: 30px;
 }
 
 .inset > div > div {
-  margin: 0 30px;
+  margin: 30px 30px 0 30px;
 }
-
+.inset p {
+  margin: 0;
+}
 .katex {
   margin-top: 15px;
 }
