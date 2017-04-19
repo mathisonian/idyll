@@ -331,6 +331,8 @@ body {
 
 .inset {
   text-align: center;
+  font-family: KaTeX_Main;
+  line-height: 1.2;
 }
 
 .inset > div > div {
