@@ -1,0 +1,67 @@
+[meta title:"nonlinear sliders" description:"Nonlinear sliders" /]
+
+[IdyllLogo /]
+
+[Header
+  title:"Nonlinear Range Input"
+  author:"Matthew Conlen"
+  authorLink:"https://github.com/mathisonian" /]
+
+[aside]
+[Chart equation:`d => d` domain:`[0, 1]` range:`[0, 1]` /]
+[caption]The typical mapping that a slider uses looks like this.[/caption]
+[/aside]
+
+Range sliders takes an input value and maps it to a point on the line
+between two values, for example between 0 and 1.
+Typically this is done using a linear mapping, but sometimes certain
+areas of the range are more important than others.
+
+
+Such a case might warrant allowing that important range to occupy a disproportionate amount
+of space on the slider. This would allow users interact with certain areas on a more fine grained
+level.
+
+We could instead return the logarithm of the input value,
+[equation]y = \log{x}[/equation]
+and get a slider that moves very quickly over low values,
+but more slowly at the high end of its range.
+
+[aside]
+[Chart equation:`d => Math.log(d * 9 + 1) / Math.log(10)` domain:`[0, 1]` range:`[0, 1]` /]
+[caption]A logarithmic mapping. Use the sliders to test it out.[/caption]
+[/aside]
+
+These sliders control the opacity of the black rectangle. The first slider uses a logarithmic scale,
+the second uses the traditional linear scale.
+[var name:"x" value:0 /]
+
+[inset ]
+
+[div style:`{opacity: 1 - x, width: 75, height: 75, background: 'black', margin: '20px auto'}` /]
+
+
+[equation latex:`"\\text{opacity} =  1 - " + x.toFixed(2) + " = " + (1 - x).toFixed(2)` /]
+
+
+[inline]
+  Logarithmic:
+
+  [LogRange value:x min:0 max:1 step:0.01 /]
+[/inline]
+[inline]
+  Linear:
+
+  [Range value:x min:0 max:1 step:0.01 /]
+[/inline]
+
+
+[/inset]
+
+Notice the difference in using the two sliders.
+In this case, a log scale is a more natural fit for the variable being manipulated (the opacity of the chart).
+
+An example implementation of this idea in React follows.
+
+[gist gist:"972376b73896250e87866b276b618070" file:"log-slider.jsx" /]
+

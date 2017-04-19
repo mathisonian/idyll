@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Fira+Mono:400,500,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.hed {
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.byline {
+  font-family: 'Fira Mono', monospace;
+}
+
+.inset {
+  text-align: center;
+}
+
+.inset > div > div {
+  margin: 0 30px;
+}
+
+.katex {
+  margin-top: 15px;
+}
+
+caption {
+  font-size: 12px;
+  font-style: italic;
+  display: block;
+}
