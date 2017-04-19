@@ -340,3 +340,9 @@ body {
 .katex {
   margin-top: 15px;
 }
+
+caption {
+  font-size: 12px;
+  font-style: italic;
+  display: block;
+}
