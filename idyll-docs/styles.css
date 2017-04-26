@@ -778,7 +778,7 @@ body {
   margin: 0;
   padding: 0;
   color: #000;
-  font-family: Verdana;
+  /*font-family: Verdana;*/
   font-size: 14px;
 }
 
@@ -789,7 +789,7 @@ body {
 }
 
 header {
-  font-family: Georgia,Times,Times New Roman,serif;
+  /*font-family: Georgia,Times,Times New Roman,serif;*/
   font-size: 48px;
   padding: 60px 10px 30px 10px;
   max-width: 640px;
@@ -846,7 +846,7 @@ button {
 
 h1,h2,h3,h4,h5,h6{
   margin: 40px 0 20px 0;
-  font-family: Georgia,Times,Times New Roman,serif;
+  /*font-family: Georgia,Times,Times New Roman,serif;*/
 }
 
 pre {
