@@ -1,0 +1,17 @@
+{
+  "name": "idyll-firebase",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "idyll index.idl --css styles.css --layout centered --theme github --spellcheck",
+    "build": "idyll index.idl --layout centered --theme github --css styles.css --output ../build/firebase/ --build; cp -r {images,fonts} ../build/firebase/;",
+    "deploy": "npm run build && gh-pages -d ../build/firebase"
+  },
+  "dependencies": {
+    "firebase": "^3.9.0",
+    "idyll": "~1.1.0",
+    "idyll-default-components": "^1.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}

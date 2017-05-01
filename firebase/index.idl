@@ -1,0 +1,60 @@
+
+
+[meta title:"Idyll + Firebase" description:"It is easy to integrate Firebase into an Idyll project." /]
+[var name:"inputColor" value:`"rgba(" + [Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.random()].join(',') + ")"` /]
+
+[Header
+  title:"Idyll + Firebase"
+  author:"Matthew Conlen"
+  authorLink:"https://twitter.com/mathisonian" /]
+
+[var name:"firebaseState" value:`{}` /]
+[var name:"database" value:`null` /]
+[Firebase database:database state:firebaseState /]
+
+This canvas is backed by firebase. If you click on a square, you will update that square's color for anyone who visits the site.
+Because [a href:"http://blog.tylerbuchea.com/create-react-app-firebase-for-prototyping/"]firebase
+works so well with React[/a] these updates propagate live to all users on the site. This all takes very little code!
+
+[Draw pixels:`firebaseState.pixels` inputColor:inputColor database:database /]
+
+
+#### Your marker color is:
+
+[div style:`{width: 50, height: 50, background: inputColor}`  /]
+[br/]
+
+ *Refresh the page to get a new color*
+
+[br/][br/]
+Firebase integrates well into Idyll's variable model. I've created an `idyll-firebase` component that
+listens for change events on the database and keeps a variable in sync with this state. Then the rest of
+the components on the page can listen to that.
+
+In practice it looks something like this:
+
+```
+[var name:"firebaseState" value:`{}` /]
+[Firebase state:firebaseState /]
+...
+
+[Draw pixels:`firebaseState.pixels` /]
+```
+
+in order for the `Draw` component to send changes back up to Firebase, we need to give it access to
+the underlying database:
+
+
+```
+[var name:"firebaseState" value:`{}` /]
+[var name:"database" value:`null` /]
+[Firebase database:database state:firebaseState /]
+...
+
+[Draw pixels:`firebaseState.pixels` database:database /]
+```
+
+then the `Draw` component can dispatch database updates on click. That update
+will consequently trigger an update in the DB and the ` pixels ` property will
+be updated! Everything stays in sync.
+
