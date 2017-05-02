@@ -18,7 +18,18 @@
   </head>
   <body>
     <div id="idyll-mount">
-      
+      <div class="idyll-root" data-reactroot="" data-reactid="1" data-react-checksum="-1646018846"><meta title="Nonlinear Sliders" data-reactid="2"/><div class="idylllogo" data-reactid="3"></div><header title="Nonlinear Range Input" data-reactid="4"></header><aside data-reactid="5"><div data-reactid="6"><div class="chart" data-reactid="7"></div><caption data-reactid="8"><!-- react-text: 9 -->The typical mapping that a slider uses looks like this.<!-- /react-text --></caption></div></aside><p data-reactid="10"><!-- react-text: 11 -->A range slider takes an input value and maps it to a point
+between two values, for example between 0 and 1.
+Typically this is done using a linear mapping, but sometimes certain
+areas of the range are more important than others.<!-- /react-text --></p><p data-reactid="12"><!-- react-text: 13 -->Such a case might warrant allowing that important range to occupy a disproportionate amount
+of space on the slider. This would allow users interact with certain areas on a more fine grained
+level.<!-- /react-text --></p><p data-reactid="14"><!-- react-text: 15 -->We could instead return the logarithm of the input value,<!-- /react-text --><div class="equation" data-reactid="16"><!-- react-text: 17 -->y = \log{x}<!-- /react-text --></div><!-- react-text: 18 -->
+and get a slider that moves very quickly over low values,
+but more slowly at the high end of its range.<!-- /react-text --></p><aside data-reactid="19"><div data-reactid="20"><div class="chart" data-reactid="21"></div><caption data-reactid="22"><!-- react-text: 23 -->A logarithmic mapping. Use the sliders to test it out.<!-- /react-text --></caption></div></aside><p data-reactid="24"><!-- react-text: 25 -->Two sliders control the opacity of the black rectangle. The first slider uses a logarithmic scale,
+the second uses the traditional linear scale.<!-- /react-text --></p><div class="inset" data-reactid="26"><div style="opacity:1;width:75px;height:75px;background:black;margin:20px auto;" data-reactid="27"></div><div class="equation" data-reactid="28"></div><div data-reactid="29"><div class="inline" data-reactid="30"><div class="logrange" value="0" min="0" max="1" step="0.01" data-reactid="31"></div><p data-reactid="32"><!-- react-text: 33 -->Logarithmic<!-- /react-text --></p></div><div class="inline" data-reactid="34"><div class="range" value="0" min="0" max="1" step="0.01" data-reactid="35"></div><p data-reactid="36"><!-- react-text: 37 -->Linear<!-- /react-text --></p></div></div></div><p data-reactid="38"><!-- react-text: 39 -->Notice the difference in using the two sliders.
+In this case, a log scale is a more natural fit for the variable being manipulated (the opacity).<!-- /react-text --></p><p data-reactid="40"><!-- react-text: 41 -->The human perceptual system sometimes <!-- /react-text --><a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law" data-reactid="42"><!-- react-text: 43 -->is sensative to the logarithm of the intensity of a certain stimulus,
+rather than the intensity iteslf<!-- /react-text --></a><!-- react-text: 44 -->. The standard unit for measuring sound, the decibel, is logarithmic as well.<!-- /react-text --></p><p data-reactid="45"><!-- react-text: 46 -->An example implementation of this idea in React follows.<!-- /react-text --></p><div class="gist" data-reactid="47"></div><p data-reactid="48"><!-- react-text: 49 -->Read more about Idyll at <!-- /react-text --><link href="https://idyll-lang.github.io/" data-reactid="50"/><!-- react-text: 51 -->,
+or <!-- /react-text --><link href="https://github.com/mathisonian/idyll/blob/master/nonlinear-sliders/index.idl" data-reactid="52"/><!-- react-text: 53 -->.<!-- /react-text --></p></div>
     </div>
     <script src="index.js"></script>
   </body>

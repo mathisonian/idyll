@@ -297,23 +297,11 @@ code {
 }
 
 
-span.action {
-  border-color: #5601FF;
-  border-width: 2px;
-  border-style: none none solid none;
-  color: #5601FF;
-  /*font-size: 0.9em;*/
-  padding: -4px 5px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
 @media all and (max-width: 700px) {
   .logo-lockup {
     display: none;
   }
 }
-
 
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Fira+Mono:400,500,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
 
