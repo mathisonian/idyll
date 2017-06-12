@@ -176,7 +176,7 @@ Update x:
 
 0 [Range value:x min:0 max:100 /] 100
 
-Value of x: [DisplayVar var:x /].
+Value of x: [DisplayVar var:`x` /].
 ```
 [/aside]
 
@@ -204,12 +204,12 @@ y = 100 - x
 ```
 [derived name:"y" value:`100 - x`/]
 
-
 Update x:
 
 0 [Range value:x min:0 max:100 /] 100
 
-Value of x: [DisplayVar var:`x` /]. Value of y: [DisplayVar var:`y` /].
+Value of x: [DisplayVar var:`x` /].
+Value of y: [DisplayVar var:`y` /].
 ```
 [/aside]
 
@@ -328,8 +328,8 @@ by default, so first install it, then include it in the markup.
 
 [/inset]
 
-The declarative nature of Vega-Lite specifications makes it easy to iterate on the
-design of your visualization, and even have it change at runtime. Here I use a variable
+Vega-Lite makes it easy to iterate on the
+design of your visualization by just tweaking a few parameters in the `spec`. You can even have it change at runtime. Here I use a variable
 to change how the scatterplot is colored:
 
 [aside]
@@ -385,20 +385,21 @@ integrating with things like Google Docs, and maybe even
  [supporting React Native](https://twitter.com/mathisonian/status/858493872137162753).
 
 Check out some more examples of what you can do with Idyll
-at [https://idyll-lang.github.io/](https://idyll-lang.github.io/).
+at [https://idyll-lang.github.io/](https://idyll-lang.github.io/). If you use Visual Studio Code,
+check out the [Idyll Syntax plugin](https://marketplace.visualstudio.com/items?itemName=mathisonian.idyll-syntax) to get syntax highlighting for your Idyll documents.
 
 [aside]
 ```
 ![gdrive](./images/gdrive.gif)
 [small]
-A clean markup languages means it is possible to use applications like Google Docs as your editor.
+A clean markup language means it is possible to use applications like Google Docs as your editor.
 [/small]
 ```
 [/aside]
 
 ![gdrive](./images/gdrive.gif)
 [small]
-A clean markup languages means it is possible to use applications like Google Docs as your editor.
+A clean markup language means it is possible to use applications like Google Docs as your editor.
 [/small]
 
 If you are interested in the project,
