@@ -1,0 +1,414 @@
+[meta title:"Take a walk on the Idyll side" description:"Exploring new ways to create interactive documents" /]
+
+[logo /]
+
+[Header
+  title:"Take a walk on the Idyll side"
+  subtitle:"Exploring new ways to create interactive documents"
+  author:"Matthew Conlen"
+  authorLink:"https://twitter.com/mathisonian" /]
+
+[aside className:"title"]
+```
+[Header
+  title:"Take a walk on the Idyll side"
+  subtitle:"Exploring new ways to create interactive documents"
+  author:"Matthew Conlen"
+  authorLink:"https://twitter.com/mathisonian" /]
+```
+[/aside]
+
+[small]
+In this document the code blocks on the right show the Idyll markup used
+to create the output you see.
+[/small]
+
+Idyll is an [open-source markup language and toolkit](http://idyll-lang.github.io/) for producing interactive web pages. You give Idyll a markup file, and it compiles that file to a full bundle of HTML, JavaScript, and CSS that
+can run in anyone's web browser.
+
+
+The fastest way to get started using Idyll is to install it from npm.
+
+[aside]
+![example](./images/example.gif)
+[/aside]
+
+```bash
+$ npm install -g idyll # install the command line tool
+$ echo "# hello world" > index.idl # create an input file
+$ idyll index.idl --watch # compile the file and open it in a web browser
+```
+
+We've spent too long being forced to choose between a nice
+authoring environment and a nice programming interface.
+
+Other tools try to address this
+in different ways. Static blog engines enable people to write clean, concise markup that can be rendered on the
+web, but often don't allow for dynamic elements without advanced customization.
+Wordpress is widely used and highly-customizable,
+but dynamic content is far removed from the contents of posts, typically
+shimmed in or inserted via an iframe.
+
+Notebook-style tools like Jupyter are great for
+analysis, but treat presentation as an afterthought. They don't do a
+good job of offering a way to break out of the code-cell metaphor or to run client-side code separate from JavaScript generated during analysis.
+
+Several years ago Wolfram released their [Computable Document Format](https://www.wolfram.com/cdf/)  (CDF), meant to *"power the next generation of interactive documents, blogs, reports, presentations, articles, books"*, along with a proprietary CDF viewer, but failed to acknowledge that
+a great interactive document format was already available (HTML/JavaScript), along with a very widely distributed
+viewer (the web browser).
+
+Idyll makes it easier to write documents for the web, building on powerful open-source tools.
+
+
+### Clean Markup
+
+[aside]
+```markdown
+## Clean Markup
+
+Idyll starts with the same principles as [markdown](https://daringfireball.net/projects/markdown/syntax), and uses a lot of the same syntax.
+If you want text to appear in your output, just start writing text, save the mucking about with `<div>`'s, containers, and `<p>` tags for a different time.
+```
+[/aside]
+
+Idyll starts with the same principles as [markdown](https://daringfireball.net/projects/markdown/syntax),
+and uses a lot of the same syntax. If you want text to appear in your output, just start writing text, save the
+mucking about with `<div>`'s, containers, and `<p>` tags for a different time. Markup should be
+written to be read by humans, not just computers.
+
+For a complete listing of markdown syntax that can be used within Idyll documents see [this example](https://idyll-lang.github.io/examples/repertoire/), and [the markup used to create it](https://github.com/idyll-lang/examples/blob/master/repertoire/index.idl).
+
+
+## Beyond Static Text
+
+The real power of Idyll comes
+when you want to use JavaScript to enrich your writing. Special syntax allows you to
+embed JavaScript inline with your text, and Idyll comes with a variety of components that can be used out-of-the-box to create rich documents.
+
+
+[aside]
+```
+For example, the `Equation` component can be used to typeset equations
+using the [KaTeX library](https://github.com/Khan/KaTeX).
+
+[Equation]
+  y = \int x^2 dx
+[/Equation]
+```
+[/aside]
+
+For example, the `Equation` component can be used to typeset equations
+using the [Katex library](https://github.com/Khan/KaTeX).
+
+
+[Equation display:true]
+  y = \int x^2 dx
+[/Equation]
+
+All of the built-in components are [documented on Idyll's website](https://idyll-lang.github.io/components-built-in). For a more in-depth discussion of the syntax see:
+
+[https://idyll-lang.github.io/syntax](https://idyll-lang.github.io/syntax).
+
+## React as a runtime
+
+Under the hood Idyll compiles the static markup into a dynamic [React](https://facebook.github.io/react/)
+application. This allows writers to easily include any of the thousands of freely available open-source
+React components in their projects.
+
+For example, `react-minimal-pie-chart` is a react component that is used to make pie charts.
+It is unaffiliated with Idyll but included here to show how
+third-party components can be used.
+
+To include it on a page, first install it,
+
+```bash
+$ npm install --save react-minimal-pie-chart
+```
+
+and then include it in your markup. The component is instantiated and displayed on your page:
+
+
+[aside]
+````
+To include it on a page, first install it,
+
+```bash
+$ npm install --save react-minimal-pie-chart
+```
+
+and then include it in your markup.
+The component is instantiated and displayed on your page:
+
+[ReactSimplePieChart
+  slices:`[{
+    color: '#7b3af5',
+    value: 0.1,
+  }, {
+    color: '#EAE7D6',
+    value: 0.9, },
+  ]` /]
+````
+[/aside]
+
+[inset]
+[ReactSimplePieChart   slices:`[{ color: '#7b3af5', value: 0.1, }, { color: '#EAE7D6', value: 0.9, }, ]` /]
+[/inset]
+
+Idyll can automatically find components installed via npm, so in most
+cases you won't need to do any additional configuration after installing — just add the tag to your markup.
+
+Idyll provides special wrappers that help integrate popular JavaScript libraries like [D3](https://idyll-lang.github.io/idyll-d3-component) and [regl](https://idyll-lang.github.io/idyll-regl-component). And you can
+write [your own custom components](https://idyll-lang.github.io/components-custom) as well.
+
+
+## Reactivity and Variables
+
+In addition to helping manage and instantiate components on a page,
+Idyll makes it easy to manipulate and display variables.
+
+[aside]
+```
+[var name:"x" value:0 /]
+```
+[/aside]
+
+For example, I can initialize a variable, and bind its value
+to a range slider. Whenever the slider is moved, the variable is
+automatically updated, and anything that depends on that variable
+is updated as well.
+
+[aside]
+```
+Update x:
+
+0 [Range value:x min:0 max:100 /] 100
+
+Value of x: [DisplayVar var:x /].
+```
+[/aside]
+
+[var name:"x" value:0 /]
+
+Update x:
+
+[inset]
+0 [Range value:x min:0 max:100 /] 100
+[/inset]
+
+Value of x: [DisplayVar var:x /].
+
+
+[aside]
+```
+Derived variables can be used to
+achieve spreadsheet-like functionality. For example, I can define `y` as
+
+[equation]
+y = 100 - x
+[/equation]
+
+[derived name:"y" value:`100 - x`/]
+
+
+Update x:
+
+[inset]
+0 [Range value:x min:0 max:100 /] 100
+[/inset]
+
+Value of x: [DisplayVar var:`x` /]. Value of y: [DisplayVar var:`y` /].
+```
+[/aside]
+
+Derived variables can be used to
+achieve spreadsheet-like functionality. For example, I can define `y` as
+
+[equation]
+y = 100 - x
+[/equation]
+
+
+[derived name:"y" value:`100 - x`/]
+
+Update x:
+
+[inset]
+0 [Range value:x min:0 max:100 /] 100
+[/inset]
+
+Value of x: [DisplayVar var:`x` /]. Value of y: [DisplayVar var:`y` /].
+
+Variables can be passed into components (try moving the sliders above and watching
+the pie chart).
+
+[aside]
+```
+[ReactSimplePieChart
+  slices:`[{
+    color: '#7b3af5',
+    value: x,
+  }, {
+    color: '#EAE7D6',
+    value: y, },
+  ]` /]
+```
+[/aside]
+
+[inset]
+[ReactSimplePieChart slices:`[{ color: '#7b3af5', value: x, }, { color: '#EAE7D6', value: y, }, ]` /]
+[/inset]
+
+There are many ways to manipulate variables, and any component has the ability to update a variable. For example, instead of using a range slider, we could define one button that divides the value of `x` in half every
+time it gets clicked, and a second button that resets the value to 50:
+
+[aside]
+```
+[button onClick:`x = x / 2` ]
+Divide!
+[/button]
+[button onClick:`x = 50` ]
+Reset!
+[/button]
+```
+[/aside]
+
+[inset]
+[button onClick:`x = x / 2` ]
+Divide!
+[/button]
+[button onClick:`x = 50` ]
+Reset!
+[/button]
+[/inset]
+
+Value of x: [DisplayVar var:x /]. Value of y: [DisplayVar var:`y` /].
+
+## Datasets and Visualization
+
+Idyll provides the ability to load datasets from `csv` or `json` files.
+Once they are loaded, datasets are treated just like variables.
+
+[aside]
+```
+Here I load a dataset about cars and show the first 10 rows in a table:
+
+[data name:"cars" source:"cars.json"  /]
+
+[Table data:`cars.slice(0, 10)` /]
+```
+[/aside]
+
+Here I load a dataset about cars and show the first 10 rows in a table:
+
+[data name:"cars" source:"cars.json"  /]
+
+[Table data:`cars.slice(0, 10)` /]
+
+[aside]
+```bash
+$ npm install --save idyll-vega-lite
+```
+[/aside]
+
+I can use [Vega-Lite](https://vega.github.io/vega-lite/) to quickly create a visualization of the data.
+Idyll has a component specifically for embedding Vega-Lite charts in your documents. It doesn't ship
+by default, so first install it, then include it in the markup.
+
+
+[aside]
+```
+[IdyllVegaLite data:cars spec:`{
+  width: 300,
+  height: 200,
+  renderer: 'svg',
+  mark: "circle",
+  encoding: {
+    x: {field: "Horsepower", type: "quantitative"},
+    y: {field: "Miles_per_Gallon", type: "quantitative"}
+  }
+}` /]
+```
+[/aside]
+
+[inset]
+[VegaLite data:cars spec:`{
+  width: 300,
+  height: 200,
+  mark: "circle",
+  encoding: {
+    x: {field: "Horsepower", type: "quantitative"},
+    y: {field: "Miles_per_Gallon", type: "quantitative"}
+  }
+}` /]
+
+[/inset]
+
+The declarative nature of Vega-Lite specifications makes it easy to iterate on the
+design of your visualization, and even have it change at runtime. Here I use a variable
+to change how the scatterplot is colored:
+
+[aside]
+```
+[var name:"colorBy" value:`{}` /]
+
+[IdyllVegaLite data:cars spec:`{
+  width: 300,
+  height: 200,
+  mark: "circle",
+  encoding: {
+    x: {field: "Horsepower", type: "quantitative"},
+    y: {field: "Miles_per_Gallon", type: "quantitative"},
+    color: colorBy
+  }
+}` /]
+
+Color by:
+ [button onClick:`colorBy = {}` ]None[/button]
+ [button onClick:`colorBy = {field: 'Year', type: 'nominal'}` ]Year[/button]
+ [button onClick:`colorBy = {field: 'Origin', type: 'nominal'}` ]Origin[/button]
+```
+[/aside]
+
+
+
+[var name:"colorBy" value:`{}` /]
+
+[inset]
+[VegaLite data:cars spec:`{
+  width: 300,
+  height: 200,
+  mark: "circle",
+  encoding: {
+    x: {field: "Horsepower", type: "quantitative"},
+    y: {field: "Miles_per_Gallon", type: "quantitative"},
+    color: colorBy
+  }
+}` /]
+
+Color by:
+ [button onClick:`colorBy = {}` ]None[/button]
+ [button onClick:`colorBy = {field: 'Year', type: 'nominal'}` ]Year[/button]
+ [button onClick:`colorBy = {field: 'Origin', type: 'nominal'}` ]Origin[/button]
+[/inset]
+
+## Going Forward
+
+I'm excited to see where Idyll goes, and what people
+do with it. There are lots of possibilities
+such as making blog engines that can create much richer output,
+integrating with things like Google Docs, and maybe even
+ [supporting React Native](https://twitter.com/mathisonian/status/858493872137162753).
+
+Check out some more examples of what you can do with Idyll
+at [https://idyll-lang.github.io/](https://idyll-lang.github.io/).
+
+![gdrive](./images/gdrive.gif)
+[small]
+A clean markup languages means it is possible to use applications like Google Docs as your editor.
+[/small]
+
+If you are interested in the project,
+please drop by [our chatroom](https://gitter.im/idyll-lang/Lobby) to say "Hi!", and
+visit us [on GitHub](https://github.com/idyll-lang/idyll).
+
+[star/]

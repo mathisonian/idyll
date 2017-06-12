@@ -1,0 +1,27 @@
+{
+  "name": "introducing-idyll",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "idyll index.idl --template ./_index.html --defaultComponents ./components/default --css styles.css --layout blog --theme idyll --spellcheck --watch",
+    "build": "idyll index.idl --template ./_index.html --defaultComponents ./components/default --css styles.css --layout blog --theme idyll; cp -r {images,fonts} build/;",
+    "deploy": "npm run build && cp -r ./build/* ../build/a-walk-on-the-idyll-side/ && gh-pages -d ../build"
+  },
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "histoslider": "^1.0.1",
+    "idyll": "~1.8.0",
+    "idyll-vega-lite": "^1.0.1",
+    "insert-css": "^2.0.0",
+    "react-8bit": "^0.1.1",
+    "react-micro-bar-chart": "^1.1.0",
+    "react-radial-bar-chart": "^0.1.4",
+    "react-simple-pie-chart": "^0.4.1",
+    "react-sparklines": "^1.6.0"
+  },
+  "idyll": {
+    "components": {}
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}
