@@ -99,7 +99,18 @@ blockquote {
 }
 
 small {
-  font-size: 14px;
+  font-size: small;
+  font-style: italic;
+  /*font-weight: bold;*/
+}
+small p {
+  font-size: small;
+  font-style: italic;
+  /*font-weight: bold;*/
+}
+
+small span {
+  font-size: small;
   font-style: italic;
   /*font-weight: bold;*/
 }
@@ -175,4 +186,12 @@ td.number {
 tspan {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 12px;
+}
+
+pre {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #EAE7D6;
 }

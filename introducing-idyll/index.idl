@@ -19,7 +19,7 @@
 [/aside]
 
 [small]
-In this document the code blocks on the right show the Idyll markup used
+In this document the code blocks with a [span style:`{background:"#EAE7D6"}`]beige border[/span] show the Idyll markup used
 to create the output you see.
 [/small]
 
@@ -60,10 +60,10 @@ viewer (the web browser).
 Idyll makes it easier to write documents for the web, building on powerful open-source tools.
 
 
-### Clean Markup
+## Clean Markup
 
 [aside]
-```markdown
+```
 ## Clean Markup
 
 Idyll starts with the same principles as [markdown](https://daringfireball.net/projects/markdown/syntax), and uses a lot of the same syntax.
@@ -115,7 +115,7 @@ Under the hood Idyll compiles the static markup into a dynamic [React](https://f
 application. This allows writers to easily include any of the thousands of freely available open-source
 React components in their projects.
 
-For example, `react-minimal-pie-chart` is a react component that is used to make pie charts.
+For example, `react-minimal-pie-chart` is a React component that makes pie charts.
 It is unaffiliated with Idyll but included here to show how
 third-party components can be used.
 
@@ -130,13 +130,6 @@ and then include it in your markup. The component is instantiated and displayed 
 
 [aside]
 ````
-To include it on a page, first install it,
-
-```bash
-$ npm install --save react-minimal-pie-chart
-```
-
-and then include it in your markup.
 The component is instantiated and displayed on your page:
 
 [ReactSimplePieChart
@@ -198,8 +191,7 @@ Update x:
 Value of x: [DisplayVar var:x /].
 
 
-[aside]
-```
+
 Derived variables can be used to
 achieve spreadsheet-like functionality. For example, I can define `y` as
 
@@ -207,26 +199,19 @@ achieve spreadsheet-like functionality. For example, I can define `y` as
 y = 100 - x
 [/equation]
 
+
+[aside]
+```
 [derived name:"y" value:`100 - x`/]
 
 
 Update x:
 
-[inset]
 0 [Range value:x min:0 max:100 /] 100
-[/inset]
 
 Value of x: [DisplayVar var:`x` /]. Value of y: [DisplayVar var:`y` /].
 ```
 [/aside]
-
-Derived variables can be used to
-achieve spreadsheet-like functionality. For example, I can define `y` as
-
-[equation]
-y = 100 - x
-[/equation]
-
 
 [derived name:"y" value:`100 - x`/]
 
@@ -264,10 +249,10 @@ time it gets clicked, and a second button that resets the value to 50:
 [aside]
 ```
 [button onClick:`x = x / 2` ]
-Divide!
+  Divide!
 [/button]
 [button onClick:`x = 50` ]
-Reset!
+  Reset!
 [/button]
 ```
 [/aside]
@@ -402,6 +387,15 @@ integrating with things like Google Docs, and maybe even
 Check out some more examples of what you can do with Idyll
 at [https://idyll-lang.github.io/](https://idyll-lang.github.io/).
 
+[aside]
+```
+![gdrive](./images/gdrive.gif)
+[small]
+A clean markup languages means it is possible to use applications like Google Docs as your editor.
+[/small]
+```
+[/aside]
+
 ![gdrive](./images/gdrive.gif)
 [small]
 A clean markup languages means it is possible to use applications like Google Docs as your editor.
@@ -412,3 +406,6 @@ please drop by [our chatroom](https://gitter.im/idyll-lang/Lobby) to say "Hi!", 
 visit us [on GitHub](https://github.com/idyll-lang/idyll).
 
 [star/]
+
+View [the full source for this article](https://github.com/mathisonian/idyll/blob/master/introducing-idyll/index.idl)
+on GitHub.
