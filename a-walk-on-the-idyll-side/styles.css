@@ -270,9 +270,6 @@ body {
   color: #7b3af5;
 }
 
-.idyll-root a {
-  /*color: #7b3af5;*/
-}
 
 .hed {
   width: 100%;
@@ -418,4 +415,15 @@ pre {
   padding: 0.5em;
   color: #333;
   background: #EAE7D6;
+}
+
+.idyll-root a {
+  border: none;
+
+  text-decoration: underline;
+  box-shadow: none;
+  transition: color 0.25s;
+}
+.idyll-root a:hover {
+  color: #7b3af5;
 }
