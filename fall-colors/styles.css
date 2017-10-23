@@ -929,6 +929,7 @@ button:focus {
 @media (max-width: 1000px) {
   .idyll-root {
     text-align: left;
+    padding: auto 10px;
   }
   .hed {
     font: 26px/8px 'Open Sans', sans-serif;
