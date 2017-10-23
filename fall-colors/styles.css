@@ -944,3 +944,33 @@ button:focus {
 select {
   margin-right: 30px;
 }
+
+.controls {
+  position: relative;
+  top: 7vh;
+  border: solid 5px #fff;
+  background: #fff0f5;
+  padding: 10px;
+  text-align: left !important;
+  font-size: 0.8em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.controls .group  :not(button) {
+  padding: 0;
+  margin: 0;
+}
+.controls .group select,
+.controls .group input {
+  float: right;
+}
+
+
+.controls .group:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
