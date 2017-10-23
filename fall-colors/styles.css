@@ -834,6 +834,10 @@ body {
   color: #151E3F;
   font: 20px/28px 'Gentium Basic', serif;
 }
+.solid-bg {
+  background: #fff0f5;
+  padding: 5px;
+}
 .idyll-root {
   /* padding-top: 0; */
   width: 500px;
@@ -903,6 +907,7 @@ h1, h2, h3, h4, h5 {
   text-align: left;
   letter-spacing: 1px;
 }
+
 
 
 button {
