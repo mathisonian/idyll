@@ -840,7 +840,7 @@ body {
 }
 .idyll-root {
   /* padding-top: 0; */
-  width: 500px;
+  max-width: 500px;
   text-align: justify;
 }
 
@@ -924,4 +924,16 @@ button {
 
 button:focus {
   outline: none
+}
+
+@media (max-width: 1000px) {
+  .idyll-root {
+    text-align: left;
+  }
+  .hed {
+    font: 26px/8px 'Open Sans', sans-serif;
+  }
+  .dek {
+    font: 14px/24px 'Open Sans', sans-serif;
+  }
 }
