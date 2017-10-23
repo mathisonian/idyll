@@ -938,3 +938,7 @@ button:focus {
     font: 14px/24px 'Open Sans', sans-serif;
   }
 }
+
+select {
+  margin-right: 30px;
+}
