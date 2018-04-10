@@ -1,0 +1,162 @@
+[meta
+  title:"Autumnal Colors"
+  description:"A look at trees, colormaps, and chroma.js."
+  url:"https://mathisonian.github.io/idyll/fall-colors/"
+  shareImageUrl:"https://cdn.rawgit.com/mathisonian/idyll/gh-pages/fall-colors/images/share.png"
+  twitterHandle:"@mathisonian"
+  shareImageWidth:899
+  shareImageHeight:566  /]
+
+[preload images:`['images/google.png', 'images/goodreads.png']` /]
+
+[Header
+  title:"Autumnal Colors"
+  subtitle:"A look at trees, colormaps, and chroma.js."
+  author:"Matthew Conlen"
+  authorLink:"https://twitter.com/mathisonian" /]
+
+
+The fall has always been my favorite season,
+and according to [a href:"https://www.google.com/search?q=what+is+the+best+season+of+the+year" target:"_blank" data-tip:true data-for:"google"]Google results[/a] and a
+ [a href:"https://www.goodreads.com/poll/show/37929-what-is-your-favorite-season-of-the-year-why-please-specify-in-commen"  target:"_blank" data-tip:true data-for:"goodreads"]totally scientific poll on Goodreads.com[/a], people agree.
+It makes sense: the cooler days provide a welcome respite from increasingly hot
+summer temperatures, along with excuses to drink cider, eat pumpkin pie, and wear sweaters.
+
+[ReactTooltip id:"google" place:"right" className:"solid"]
+  [image src:"images/google.png" style:`{width: 500}` /]
+[/ReactTooltip]
+
+[ReactTooltip id:"goodreads" place:"right" className:"solid"]
+  [image src:"images/goodreads.png" style:`{width: 300}` /]
+[/ReactTooltip]
+
+One of the best things about autumn is that it brings with it
+a brilliant set of colors as trees begin to shed their leaves for the winter.
+This year I've found myself paying more attention to nature's colors than
+usual. Having spent the summer designing a system for NASA that
+made heavy use of custom color scales, I've got colors on my mind.
+
+[aside]
+[image style:`{width: '100%'}` src:"images/tree.jpg" /]
+Colors from this image were used to generate the first colormap.
+[/aside]
+
+I took pictures of several
+particularly striking trees around Seattle and the University of Washington campus, hoping
+to use them to create a fall-inspired palette. Here are three colors that I
+pulled from one picture, taken from characteristic green, yellow, and
+red colored leaves:
+
+[image className:"inset" style:`{width: '100%'}` src:"images/colors-1.png" /]
+
+The colors look nice on their own, but I really wanted to see what it would look like
+if they were used to generate a colormap; the
+multicolored trees struck me as a kind of natural gradient.
+
+I used [Gregor Aisch's chroma.js](https://gka.github.io/chroma.js/) to create
+custom color scales based on the palette above. The following JavaScript code will create a
+scale between the three colors, using one of several different color modes.
+
+```js
+// Green, yellow, and red colors
+const colors = ['#577C5B', '#FFE298', '#E26783'];
+
+// The mode can be rgb, lab, hsl, lch
+const mode = 'rgb'
+
+// Create the color scale
+const scale = chroma.scale(colors).mode(mode);
+```
+
+[aside]
+**Disclaimer:** People have spent a lot of time and energy developing [colormaps that are perceptually effective](https://github.com/d3/d3-scale-chromatic). In
+almost all real-world cases you'll want to use one of those.
+[/aside]
+
+The resulting scales look slightly different, depending on the mode used.
+
+[div style:`{margin: '60px auto'}`]
+[ColorScale colors:`['#577C5B', '#FFE298', '#E26783']` mode:"rgb" /]
+[ColorScale colors:`['#577C5B', '#FFE298', '#E26783']` mode:"lab" /]
+[ColorScale colors:`['#577C5B', '#FFE298', '#E26783']` mode:"lch"  /]
+[ColorScale colors:`['#577C5B', '#FFE298', '#E26783']` mode:"hsl" /]
+[/div]
+
+
+The "hue saturation lightness" (HSL) mode stands out as taking a
+different path through the color space. Color models are a [deep and interesting
+topic](https://en.wikipedia.org/wiki/Color_model) that I won't begin to delve
+into here.
+
+
+[aside]
+[image src:"images/leaves.jpg" /]
+These are extra bright leaves.
+[/aside]
+
+These maps were interesting to see, but overall are a little dark, and don't capture
+the *excitement* of the leaves. To make a second, lighter palette, I turned to another picture, this time of leaves on the ground.
+
+Here are the colors I chose from the second image:
+
+[image className:"inset" src:"images/colors-2.png" /]
+
+Using the same JavaScript code from above (just swapping in the new colorcodes), I generated a new set of colormaps.
+
+[var name:"dimScales" value:false /]
+[div style:`{margin: '60px auto'}`]
+[ColorScale style:`{opacity: dimScales ? 0.3 : 1}` colors:`['#A4D3D6', '#D7CF7C', '#E0568A']` mode:"rgb" /]
+[ColorScale style:`{opacity: dimScales ? 0.3 : 1}` colors:`['#A4D3D6', '#D7CF7C', '#E0568A']` mode:"lab" /]
+[ColorScale colors:`['#A4D3D6', '#D7CF7C', '#E0568A']` mode:"lch" /]
+[ColorScale style:`{opacity: dimScales ? 0.3 : 1}` colors:`['#A4D3D6', '#D7CF7C', '#E0568A']` mode:"hsl" /]
+[/div]
+
+This set turned out a bit nicer, [action onMouseEnter:`dimScales = true ` onMouseLeave:` dimScales = false ` ]I particularly like the LCH mode[/action]. The tool below lets you draw by changing parameters of the color scale.
+
+[var name:"trigger" value:false /]
+[var name:"scale" value:"light" /]
+[var name:"mode" value:"lch" /]
+[var name:"pointCount" value:0 /]
+[var name:"radius" value:10 /]
+[var name:"opacity" value:1 /]
+[var name:"started" value:false /]
+[var name:"pointsToDraw" value:1500 /]
+[derived name:"colors" value:` scale === 'light' ? ['#A4D3D6', '#D7CF7C', '#E0568A'] : ['#577C5B', '#FFE298', '#E26783'] ` /]
+
+
+[div className:"controls"]
+[div className:"group"]
+Choose scale:
+[select value:scale options:` ['light', 'dark'] ` /]
+
+Choose mode: [select value:mode options:` ['rgb', 'lab', 'lch', 'hsl' ] ` /]
+
+Opacity: [range value:opacity min:0 max:1 step:0.001 /]
+
+Radius: [range value:radius min:0 max:50 /]
+
+Points to draw: [TextInput value:pointsToDraw /]
+
+[/div]
+
+[div className:"group" ]
+[button onClick:`started = true; trigger = !trigger `][display value:` started ? 'Reset' : 'Click to draw points' `/][/button]
+Points drawn:  [display var:pointCount format:" d" /]
+[/div]
+[/div]
+
+[FullScreen onEnterView:` if (!started) {started = true; trigger = !trigger} ` ]
+  [CustomD3Component radius:` radius ` pointsToDraw:` pointsToDraw ` theme:` scale ` opacity:` opacity ` triggerUpdate:` trigger ` colors:` colors ` mode:` mode ` pointCount:pointCount /]
+[/FullScreen]
+
+
+[var name:"showIdyll" value:true /]
+[div className:"solid-bg" style:`{display: showIdyll ? 'static' : 'none' }`]
+This post was created using Idyll, a markup language I'm developing to make it easier to author interactive documents. To learn
+more about that project visit [http://idyll-lang.org/](http://idyll-lang.org/).
+
+[action onClick:`showIdyll = false `]Hide[/action]
+[/div]
+
+
+[Analytics google:"UA-93774348-1" /]

@@ -1,0 +1,91 @@
+[meta title:"Auto Scroller" description:"Short description of your project" /]
+[var name:"state" value:"title"  /]
+[var name:"randomize" value:false  /]
+[var name:"pointCount" value:0 /]
+[var name:"color" value:false /]
+
+[Scroll section:state]
+[Scroll.Section name:"title"]
+
+  [Header
+    title:"Auto Scroller"
+    subtitle:"Example of custom scroll behavior in Idyll"
+    author:"Matthew Conlen"
+    authorLink:"https://twitter.com/mathisonian"
+    /]
+
+  [button onClick:`state = 'intro'`]
+    Continue
+  [/button]
+
+[/Scroll.Section]
+
+[Scroll.Section name:"intro"]
+  Several days ago [Maarten Lambrechts](https://twitter.com/maartenzam) —
+  creator of the great [rocknpoll.graphics](http://rocknpoll.graphics) —
+  wrote on twitter asking if it would create an article with
+  similar navigation using Idyll.
+
+  [ReactTweetEmbed id:"920403425808080896" options:`{conversation: 'none'}` /]
+
+  It is!
+
+  [action onClick:`state = 'overview' `] Scroll on to find out more... [/action]
+[/Scroll.Section]
+
+[Scroll.Section name:"overview"]
+To simplify things, I created a `Scroll` component that will scroll to a particular
+section based on its input value. The Idyll markup looks something like this:
+
+```
+[var name:"currentSection" value:"1" /]
+[Scroll section:currentSection]
+  [Section name:"1"] This is section 1... [/Section]
+  [Section name:"2"] This is section 2... [/Section]
+  [Section name:"2"] This is section 3... [/Section]
+[/Scroll]
+```
+
+To trigger a scroll to the next section, simply update that `currentSection` variable:
+
+```
+[button onClick:`currentSection++` ]
+  Click me to go to the next section!
+[/button]
+```
+
+
+[button onClick:`state = 'interaction' ` ]
+  Click me to go to the next section!
+[/button]
+  [/Scroll.Section]
+
+[Scroll.Section name:"interaction"]
+  This scrolling code can be used in conjunction with the variables powering the rest of
+  document. For example:
+
+  Add Point: [button onClick:`pointCount+=1 ` ] Add point [/button]
+
+  Remove Point: [button onClick:`pointCount-=1 ` ] Remove point [/button]
+
+  Toggle Color: [button onClick:`color = !color ` ] Toggle color[/button]
+
+  [action onClick:`state = 'end' `] Click to continue... [/action]
+[/Scroll.Section]
+
+[Scroll.Section name:"end"]
+  Thanks for reading. The code for this can be found at:
+
+  Find out more about Idyll at [idyll-lang.org](https://idyll-lang.org). Feel free to reach out
+  in our [chatroom on gitter](https://gitter.im/idyll-lang/Lobby), or on twitter [@mathisonian](https://twitter.com/mathisonian).
+
+
+  [button onClick:` state = 'title' ` ]Back to top[/button]
+[/Scroll.Section]
+[/Scroll]
+
+[CustomD3Component
+  className:"d3-component"
+  randomize:` randomize `
+  pointCount:` pointCount `
+  color:` color ` /]

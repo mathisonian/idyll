@@ -1,0 +1,18 @@
+{
+  "name": "fall-colors",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "idyll index.idl --defaultComponents=./components/default --template _index.html --theme github --css styles.css --watch",
+    "build": "idyll index.idl --defaultComponents=./components/default --template _index.html --theme github --css styles.css; cp -r {build/*,images,fonts} ../build/fall-colors/",
+    "deploy": "npm run build && gh-pages -d ../build/"
+  },
+  "dependencies": {
+    "chroma-js": "^1.3.4",
+    "d3": "^4.0.0",
+    "idyll": "^2.0.0",
+    "idyll-d3-component": "^2.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}

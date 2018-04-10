@@ -1,0 +1,20 @@
+{
+  "name": "auto-scroller",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "idyll index.idl --defaultComponents components/default --css styles.css --theme github --watch",
+    "build": "idyll index.idl --defaultComponents components/default --theme github --css styles.css; cp -r {images,fonts} build/;",
+    "deploy": "npm run build && gh-pages -d ./build"
+  },
+  "dependencies": {
+    "d3": "^4.11.0",
+    "d3-selection": "^1.1.0",
+    "idyll": "^2.0.0",
+    "idyll-d3-component": "^2.0.1",
+    "react-scroll": "^1.6.1",
+    "react-tweet-embed": "^1.0.8"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}

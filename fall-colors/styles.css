@@ -1,0 +1,146 @@
+
+body {
+  background: #fff0f5;
+  color: #151E3F;
+  font: 20px/28px 'Gentium Basic', serif;
+}
+.solid-bg {
+  background: #fff0f5;
+  border: solid 5px #fff;
+  padding: 10px;
+  position: relative;
+}
+.idyll-root {
+  /* padding-top: 0; */
+  max-width: 500px;
+  text-align: justify;
+}
+
+/* .idyll-root > :not(:first-child) {
+  position: relative;
+  top: -30vh;
+} */
+
+.solid {
+  opacity: 1 !important;
+}
+a {
+  color: #151E3F;
+  text-decoration: underline;
+}
+
+.aside {
+  font-size: 0.8em;
+  line-height: 1.4em;
+  text-align: left;
+  font-style: italic;
+}
+
+pre {
+  margin: 60px 0;
+  font-size: 0.8em;
+}
+a[data-tip], .action {
+  color: #6B2737;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: zoom-in;
+}
+.action {
+  cursor: pointer;
+}
+.inset {
+  max-width: 60%;
+  margin: 60px auto;
+  display: block;
+}
+.article-header {
+  color: #151E3F;
+  width: 500px;
+  max-width: 90vw;
+}
+
+.hed {
+  font: 47px/22px 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+
+.dek {
+  font: 18px/28px 'Open Sans', sans-serif;
+  color: #6B2737;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #151E3F;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+
+
+button {
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  box-shadow:none;
+  border-radius: 0px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background: #151E3F;
+  color: white;
+}
+
+button:focus {
+  outline: none
+}
+
+@media (max-width: 1000px) {
+  .idyll-root {
+    text-align: left;
+    padding: auto 10px;
+  }
+  .hed {
+    font: 26px/8px 'Open Sans', sans-serif;
+  }
+  .dek {
+    font: 14px/24px 'Open Sans', sans-serif;
+  }
+}
+
+select {
+  margin-right: 30px;
+}
+
+.controls {
+  position: relative;
+  top: 7vh;
+  border: solid 5px #fff;
+  background: #fff0f5;
+  padding: 10px;
+  text-align: left !important;
+  font-size: 0.8em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.controls .group  :not(button) {
+  padding: 0;
+  margin: 0;
+}
+.controls .group select,
+.controls .group input {
+  float: right;
+}
+
+
+.controls .group:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}

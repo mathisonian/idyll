@@ -1,0 +1,53 @@
+
+.idyll-root {
+  width: 100%;
+  margin: 0 auto;
+  max-width: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+button {
+  cursor: pointer;
+}
+.article-header {
+  width: 100%;
+  max-width: 100%;
+}
+circle {
+  transition: fill 0.5s;
+}
+.action {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #8900FF;
+}
+.element {
+  margin: 25px 0 75vh 25px;
+  opacity: 0.6;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.element.selected {
+  opacity: 1;
+}
+
+svg {
+  display: block;
+}
+
+.scroll {
+  height: calc(100vh - 50px);
+  padding-bottom: 100vh;
+  overflow-y: hidden;
+  flex-grow: 1;
+}
+
+.d3-component {
+  flex-grow: 3;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
