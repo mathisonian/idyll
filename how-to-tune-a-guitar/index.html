@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <title>
+        Tune Guitar
+      </title>
+      <meta property="og:title" content="Tune Guitar">
+    <meta charset="utf-8">
+    <meta property="og:type" content="article">
+
+      <meta property="og:description" content="Short description of your project">
+      <meta property="description" content="Short description of your project">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fanwood+Text:400,700|Quattrocento:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="idyll-mount"><div data-reactroot=""><div class="idyll-root"><div style="max-width:600px;margin-left:100px" class=" idyll-text-container"><div class="article-header idyll-header"><div><img style="opacity:0.6;width:50px" src="images/speaker.png"/></div><h1 class="hed"><span class="how-to">How To:</span><br/>Tune a Guitar</h1><div class="byline">By <a href="https://twitter.com/mathisonian">Matthew Conlen</a> and <a href="https://github.com/kalealex">Alex Kale</a></div></div><div style="position:fixed" class="fixed"><div id="guitar-svg"><div class="loader"><div><svg style="width:100px;height:10px;display:block;margin:20px auto"><rect x="0" y="0" width="100" height="10" fill="#DDD"></rect><rect id="loading-bar" x="0" y="0" width="0" height="10" fill="#7ED321"></rect></svg></div>Loading audio...</div><span class="isvg pending guitar-svg-el"></span></div></div><section><h1>A Sad Guitar.</h1><p>Take a second and strum the guitar. It doesn’t sound
+so good, does it?</p><p>We’ve just taken it out of storage and <em>it’s all out of tune...</em>
+
+</p></section><section idyll="[object Object]"><h1>Electric Tuner to the Rescue.</h1><p>Tune the guitar using the tuner. Click and drag the tuning
+knobs on the right to tighten and loosen the strings.</p><div style="width:100%"></div></section><section idyll="[object Object]"><div><h1>Keep at it.</h1><p>
+This doesn’t sound in tune quite yet. Scroll back up and try to get all of the tuning knobs to turn green.</p></div></section><section idyll="[object Object]"><h1>How does this thing work?</h1><p>Guitars generate noise through the vibration of their strings. On an electric guitar such as this one,
+magnetic “pick-ups” convert those vibrations into an electrical signal which can then be sent to a tuner or an amplifier.</p><div style="width:100%"></div><p>This signal can be <a href="https://pudding.cool/2018/02/waveforms/">visualized as a raw waveform</a>, but
+often we want to visualize the frequency instead. The <a href="https://jackschaedler.github.io/circles-sines-signals/dft_introduction.html">fourier transform</a> is a mathematical function
+that reveals the audio frequencies hidden in that wave.</p><div style="width:100%"></div><p>Strum the guitar to see the frequency
+visualized.</p></section><section idyll="[object Object]"><h1>Tuning by Ear.</h1><p>Now that we’ve tuned the guitar using a tuner, let’s try to tune the guitar by ear.
+This is more challenging, and it may take you time to master.</p></section><div class="notification">
+The guitar is out of tune again!</div><section idyll="[object Object]"><h1>Match the Reference.</h1><p>We’ll start by tuning to a reference note. When you manipulate the tuners on the
+right the current note will be played, as will a reference note.</p><div class="centered"><button idyll="[object Object]"><span>Turn distortion off.</span></button></div><p>This will be easier with a cleaner sound. Match the two
+sounds to get the guitar in tune.</p></section><section idyll="[object Object]"><h1>Tuning Techniques.</h1><h2>Harmonic Intervals.</h2><p>Most of the strings on a guitar are separated by an interval known as a <em>perfect fourth</em>.</p><div class="centered"><button class="interval" idyll="[object Object]">
+♬ E2-A2</button><button class="interval" idyll="[object Object]">
+♬ A2-D3</button><button class="interval" idyll="[object Object]">
+♬ D3-G3</button><button class="interval" idyll="[object Object]">
+♬ B3-E4</button></div><p>The perfect fourth is beautifully resonant, but there’s one pair of strings on a guitar which are not separated by a perfect fourth.</p><p>The interval between the <span style="display:inline-block"><span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">G</span></span></span></span> </span></span> and <span style="display:inline-block"><span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> </span></span> strings is a <em>major third</em>. The major third sounds happy and uplifting.</p><p><div class="centered"><button class="interval" idyll="[object Object]">
+♬ G3-B4</button></div>
+These intervals show up all the time in music, for example, the major third can be found the first two notes of  <a href="https://en.wikipedia.org/wiki/When_the_Saints_Go_Marching_In">The Saints</a>. The first two notes of <a href="https://en.wikipedia.org/wiki/Amazing_Grace">Amazing Grace</a> form a perfect fourth.</p><p>Learning to hear these intervals will help you tune your guitar without a tuner.</p><h2>Find the beat.</h2><p idyll="[object Object]"><p>
+When two strings are played together, they produce a third higher frequency known as an overtone.</p></p><p>When the two strings are not perfectly in tune, the overtone is inconsistent over time. This produces a wobbling, <em>a beat</em>, in the overtone which you can hear if you listen carefully.</p><p>Play notes with a <span class="idyll-dynamic">5.00</span> Hz difference:</p><div class="centered"><button idyll="[object Object]">
+    Listen for the beats!</button><button idyll="[object Object]"><span>Turn distortion off.</span></button></div><div style="width:100%"></div><p>As you get a pair of strings closer in tune, the beats will slow down until the overtone is perfecly amplified.
+Listening for the slowing of these beats is a helpful cue for tuning.</p></section><section><h2>Practice makes perfect.</h2><p>Try tuning the guitar by listening for the relationships between adjacent strings and the beats in the resultant overtone.</p><div class="centered"><button idyll="[object Object]"><span>Show tuner</span></button><button idyll="[object Object]"><span>Remove distortion</span></button><button class="tune-action" idyll="[object Object]">
+Tune Guitar</button><button class="tune-action" idyll="[object Object]">
+Detune Guitar</button></div><div class="centered"></div><div style="display:block" idyll="[object Object]"><div style="width:100%"></div></div><div style="display:none" idyll="[object Object]"><div style="width:100%"></div></div><div style="display:none" idyll="[object Object]"><div style="width:100%"></div></div></section></div></div></div></div>
+    <script src="index.js"></script>
+  </body>
+</html>
