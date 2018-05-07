@@ -1032,7 +1032,7 @@ a:hover {
     background: rgba(255, 255, 255, 0.7);
     border-top: solid 1px #333;
     /* background: white; */
-    color: white;
+    color: black;
     /* z-index: -1; */
   }
 
