@@ -986,3 +986,48 @@ a:hover {
   font-family: 'Fanwood Text', serif;
   font-size: 0.9em;
 }
+
+.mobile-warning {
+  position: fixed;
+  /* top: 50vh; */
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #ddd;
+  padding: 45px 20px 45px 20px;
+}
+
+
+.mobile-load-confirm {
+  background: #4A90E2;
+  color: white;
+
+  width: 150px;
+  text-align: center;
+  margin: 30px auto 0 auto;
+}
+
+
+@media(max-width: 800px) {
+  .fixed {
+    top: 50vh;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    /* z-index: -1; */
+  }
+
+  .idyll-header {
+    margin-top: 50px;
+  }
+
+  section {
+    /* background: white; */
+    padding: 30px 10px;
+
+    font-family: 'Fanwood Text', serif;
+    font-size: 1.2em;
+    /* border: solid 1px black; */
+  }
+}
