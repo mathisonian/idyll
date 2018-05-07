@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg  viewBox="0 0 670 1359" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
-    <title>guitar</title>
-    <desc>Created with Sketch.</desc>
     <defs>
         <path d="M13,0 L200,0 C207.179702,-1.31888981e-15 213,5.82029825 213,13 L213,219 C213,226.179702 207.179702,232 200,232 L13,232 C5.82029825,232 8.79259876e-16,226.179702 0,219 L0,13 C-8.79259876e-16,5.82029825 5.82029825,1.31888981e-15 13,0 Z" id="path-1"></path>
         <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="213" height="232" fill="white">
