@@ -994,7 +994,8 @@ a:hover {
   right: 0;
   left: 0;
   background: #ddd;
-  padding: 45px 20px 45px 20px;
+  padding: 20px 20px 20px 20px;
+  font-size: 0.8em;
 }
 
 
@@ -1004,22 +1005,39 @@ a:hover {
 
   width: 150px;
   text-align: center;
+  padding: 10px 5px;
   margin: 30px auto 0 auto;
 }
 
 
 @media(max-width: 800px) {
+
+  body {
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+  }
   .fixed {
-    top: 50vh;
     bottom: 0;
+    height: 200px;
+    top: auto;
     right: 0;
     left: 0;
     width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    border-top: solid 1px #333;
+    /* background: white; */
+    color: white;
     /* z-index: -1; */
   }
 
   .idyll-header {
-    margin-top: 50px;
+    margin-top: 15px;
   }
 
   section {
@@ -1028,6 +1046,38 @@ a:hover {
 
     font-family: 'Fanwood Text', serif;
     font-size: 1.2em;
+    pointer-events: none;
     /* border: solid 1px black; */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+  }
+
+  .idyll-header h1 {
+    font-size: 3em;
+  }
+
+
+  #guitar-svg .guitar-svg-el {
+    transform: rotate(90deg) translateY(100px);
+    transition: transform 1s;
+  }
+
+  #guitar-svg.default .guitar-svg-el {
+    transform: rotate(90deg) translateY(100px);
+  }
+
+  #guitar-svg.headstock .guitar-svg-el {
+    transform: translateY(-50px) translateX(0px);
+  }
+
+
+  section button, section  .button {
+    pointer-events: all;
   }
 }
