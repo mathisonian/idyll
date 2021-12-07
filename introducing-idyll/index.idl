@@ -23,7 +23,7 @@ In this document the code blocks with a [span style:`{background:"#EAE7D6"}`]bei
 to create the output you see.
 [/small]
 
-Idyll is an [open-source markup language and toolkit](http://idyll-lang.github.io/) for producing interactive web pages. You give Idyll a markup file, and it compiles that file to a full bundle of HTML, JavaScript, and CSS that
+Idyll is an [open-source markup language and toolkit](https://idyll-lang.org/) for producing interactive web pages. You give Idyll a markup file, and it compiles that file to a full bundle of HTML, JavaScript, and CSS that
 can run in anyone's web browser.
 
 
